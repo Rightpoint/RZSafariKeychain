@@ -6,7 +6,9 @@ RZSafariKeychain is a collection of class methods to make getting access to the 
 ###Installation
 Easiest way to install is using cocopods, add this to your pod file to get it working.
 
-`  pod 'RZSafariKeychain', '~> 0.1' `
+```ruby
+pod 'RZSafariKeychain', '~> 0.1'
+```
 
 Alternatively you can just add the contents of the source folder to your project.
 
@@ -18,7 +20,7 @@ If you are building for iOS 7 + 8 you need to make sure that the system has acce
 
 ##### Ask for credentials
 If the device has access to safari keychain you can then prompt the user for their credentials.  Here is an example call
-```
+```objc
 [RZSafariKeychain getAccountKeychainCredentialsWithCompletion:^(NSString *accountName, NSString *accountPassword, NSError *error) {
         if ( error ) {
             NSLog(@"Error getting safari Credentials: %@", error);
@@ -45,7 +47,7 @@ Setup Walkthrough
 #####  Create your web credentials JSON file.
 This will look something like this:
  
-```
+```json
 {
     "webcredentials": {
     	"apps": [    "YWBN8XTPBJ.com.example.myApp",
@@ -60,7 +62,7 @@ Note that the service that is being used is 'webcredentials' and the value used 
 #####Sign the json file.
 Next you need to sign the json file to create an apple-app-site-association file.  This can be done with the following script.
 
-```
+```sh
 cat json.txt | openssl smime -sign -inkey example.com.key
                              -signer example.com.pem
                              -certfile intermediate.pem
@@ -86,7 +88,7 @@ In XCode go to your `Project File` -> `Capabilities` -> `Associated Domains` and
 ##### Add Associated Domains
 Inline in xCode hit the `+` and add your domain in the following format:  `service`:`Domain`  An example of this would be `webcredentials:www.example.com`.  This will update your entitlements.plist to look something like this.
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">

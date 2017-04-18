@@ -3,7 +3,7 @@ RZSafariKeychain
 
 RZSafariKeychain is a collection of class methods to make getting access to the user credentials in the keychain easier.
 
-###Installation
+### Installation
 Easiest way to install is using cocopods, add this to your pod file to get it working.
 
 ```ruby
@@ -43,7 +43,7 @@ Setup Walkthrough
 ** The remainder of the readme is just a walkthrough to setting up the server/configuration side of Safari Keychain. **
 
 
-###Server Implementation
+### Server Implementation
 #####  Create your web credentials JSON file.
 This will look something like this:
  
@@ -74,12 +74,12 @@ You will need to get the key and certificate for your webserver to pass in above
 
 Note that your actual command may be a bit different and most will not have a `-certfile` unless you have intermediate certificates.
 
-#####Host the file.
+##### Host the file.
 The last step for the server side setup is to actually host the file.  The location for it should be `https://example.com/apple-app-site-association`.
 
 Also make sure that the `Content-Type` is `application/pkcs7-mime`
 
-###App Configuration
+### App Configuration
 
 This is generally the easy part.
 ##### Add capabilities.
